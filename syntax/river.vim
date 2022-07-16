@@ -23,7 +23,7 @@ syn match riverInt   "\<-\=\(0\|[1-9]_\?\(\d\|\d\+_\?\d\+\)*\)\%([Ee][-+]\=\d\+\
 syn match riverFloat "\<-\=\d\+\.\d*\%([Ee][-+]\=\d\+\)\=\>"
 syn match riverFloat "\<-\=\.\d\+\%([Ee][-+]\=\d\+\)\=\>"
 
-syn match  riverBlockHeader /^[^=]\+{/ contains=riverBlockName,riverBlockLabel
+syn match  riverBlockHeader /^[^=]\+{/ contains=riverBlockName,riverBlockLabel,riverComment
 syn match  riverBlockName   /^\s*\([A-Za-z_][A-Za-z0-9_]*\)\(\.\([A-Za-z_][A-Za-z0-9_]*\)\)*/ skipwhite contained
 syn region riverBlockLabel  start=/"/ end=/"/ contained
 

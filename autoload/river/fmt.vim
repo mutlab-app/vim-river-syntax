@@ -1,6 +1,5 @@
 function! river#fmt#Format() abort
-  " Save the view.
-  let cur_view = winsaveview()
+  let l:cur_view = winsaveview()
 
   " Make a fake change so that the undo point is river.
   normal! ix
@@ -17,7 +16,12 @@ function! river#fmt#Format() abort
   if v:shell_error != 0
     silent undo
     let output = readfile(tmpfile)
-    echo "riverfmt failed: " . join(output, '\n')
+
+    echohl ErrorMsg
+    for line in output
+      echom 'riverfmt: ' . line
+    endfor
+    echohl None
   endif
 
   " Delete the temporary file and restore the view.

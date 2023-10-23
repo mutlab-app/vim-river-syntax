@@ -19,6 +19,8 @@ syn match riverEscape display contained "\\u\x\{4}"
 syn match riverEscape display contained "\\U\x\{8}"
 syn match riverEscape display contained +\\[^0-7xuUabfnrtv\\'"]+
 
+syn region riverRawString start=/`/ end=/`/
+
 syn match riverInt   "\<-\=\(0\|[1-9]_\?\(\d\|\d\+_\?\d\+\)*\)\%([Ee][-+]\=\d\+\)\=\>"
 syn match riverFloat "\<-\=\d\+\.\d*\%([Ee][-+]\=\d\+\)\=\>"
 syn match riverFloat "\<-\=\.\d\+\%([Ee][-+]\=\d\+\)\=\>"
@@ -30,6 +32,7 @@ syn region riverBlockLabel  start=/"/ end=/"/ contained
 hi def link riverBlockName  Structure
 hi def link riverBlockLabel String
 hi def link riverString     String
+hi def link riverRawString  String
 hi def link riverEscape     Special
 hi def link riverInt        Number
 hi def link riverFloat      Number
